@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://e0.pxfuel.com/wallpapers/1009/990/desktop-wallpaper-print-a-white-triangle-thumbnail.jpg');
+    background-size: 700px;
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.registro-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.registro-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.registro-form a {
+    margin-bottom: 45px;
+}
+.registro-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.registro-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    transition: background-color 0.3s ease;
+}
+
+.registro-form button:disabled {
+    background-color: #ccc;
+}
+
+.titulo{
+    margin: 0;
+    color: #007bff;
+    font-size: 100px;
+    font-family: "Jersey 25 Charted", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

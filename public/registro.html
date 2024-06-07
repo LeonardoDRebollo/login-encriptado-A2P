@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.10.0/forge.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/password-validator/5.1.1/password-validator.min.js"></script>
+  <script src="script.js" defer></script>
+  <script src="validacion.js" defer></script>
+  <link rel="stylesheet" href="../Css/Main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+25+Charted&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1 class="titulo">Registro</h1>
+
+  </div>
+  <form id="registerForm" class="registro-form">
+    <a href="login.html">Regresar</a>
+    <br><br>
+    <input type="text" name="nombres" placeholder="nombres y apellidos" required>
+    <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+    <input type="email" name="email" placeholder="Correo electronico" required>
+    <input type="text" name="password" placeholder="Contraseña" id="password" required oninput="ValidarPass()">
+    <input type="text" name="password-repit" placeholder="Repita su contraseña" id="password-repeat" required oninput="ValidarPass()">
+    <label id="aviso" hidden="true">Las contraseñas no coinciden</label>
+    <button type="submit" id="button-enviar" disabled="true">Register</button>
+  </form>
+</body>
+</html>

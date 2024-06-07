@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2FA</title>
+  <link rel="stylesheet" href="../Css/Main.css">
+  <script>
+    function getQueryParam(param) {
+          var urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(param);
+        }
+    async function generateQRCode() {
+      try {
+        
+        const email = getQueryParam('email'); // Reemplaza con el email del usuario
+        const response = await fetch(`http://localhost:3000/generate-qr?email=${encodeURIComponent(email)}`);
+        const data = await response.json();
+
+        if (response.ok) {
+          const qrCodeImage = document.createElement('img');
+          qrCodeImage.src = data.qrCodeUrl;
+          document.getElementById('qrcode').appendChild(qrCodeImage);
+        } else {
+          console.error('Error al generar el codigo QR:', data);
+        }
+      } catch (error) {
+        console.error('Peticion fallida', error);
+      }
+    }
+
+    async function validateCode() {
+  const codeInput = document.getElementById('code-input').value;
+  const email = getQueryParam('email'); // Reemplaza con el email del usuario
+  try {
+    const response = await fetch(`http://localhost:3000/validate-code?email=${encodeURIComponent(email)}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ code: codeInput })
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Código válido:', data.isValid);
+      if (data.isValid) {
+        window.location.href = 'home.html';
+      } else {
+        alert('Código inválido. Inténtalo de nuevo.');
+      }
+    } else if (response.status === 404) {
+      alert('Usuario no encontrado.');
+    } else {
+      console.error('Error al validar el código:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Request failed', error);
+  }
+}
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+      generateQRCode();
+    });
+  </script>
+</head>
+<body>
+  <div id="qrcode"></div>
+  <div class="registro-form">
+    <img src="../images/google-authenticator-logo.png" height="100px">
+    <input type="text" id="code-input" placeholder="Introduce el código de autenticación">
+    <button onclick="validateCode()">Validar</button>
+  </div>
+</body>
+</html>
