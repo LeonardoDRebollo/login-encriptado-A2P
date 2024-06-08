@@ -1,8 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://e0.pxfuel.com/wallpapers/1009/990/desktop-wallpaper-print-a-white-triangle-thumbnail.jpg');
-    background-size: 700px;
-    background-repeat: repeat;
+ /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvfqVHdjs7gCbn5EUq28icPVajV9iBKQofA&s');
+    background-size:cover; */
+    background: linear-gradient(to right, #111218 , #0c0720 );
+
+
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,12 +13,20 @@ body {
     height: 100vh;
 }
 
+.two-factor-input{
+    margin-top: 10%;
+   text-align: center;
+}
+
 .registro-form {
-    background-color: #fff;
+    background-color: #292b33;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    -webkit-box-shadow: -1px 4px 18px 0px rgba(3,87,255,0.51);
+    -moz-box-shadow: -1px 4px 18px 0px rgba(255, 255, 255, 0.51);
+    box-shadow: -1px 4px 18px 0px rgba(253, 253, 253, 0.332);
 }
 
 .registro-form h1 {
@@ -30,27 +40,39 @@ body {
 .registro-form input {
     width: calc(100% - 20px);
     padding: 10px;
+    color: #fff;
+    background-color: #30323a;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #f7f7f7;
+    border-radius: 10px;
+    font-weight: bold;
     font-size: 16px;
 }
 
 .registro-form button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #3569d8;
     color: #fff;
     border: none;
+    font-weight: bold;
     border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     margin-top: 10%;
     margin-bottom: 10%;
     transition: background-color 0.3s ease;
 }
 
+.registro-form a {
+    color: #fff;
+}
+
 .registro-form button:disabled {
-    background-color: #ccc;
+    background-color: #373550;
+}
+.registro-form label {
+    color: #fff;
 }
 
 .titulo{
@@ -60,4 +82,39 @@ body {
     font-family: "Jersey 25 Charted", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.qrcode{
+    filter: drop-shadow(5px 5px 40px #848484);
+}
+
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #111218 50%, rgb(18, 43, 59) 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:14s;
+  }
+  
+  .bg3 {
+    animation-duration:15s;
+  }
+
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
 }

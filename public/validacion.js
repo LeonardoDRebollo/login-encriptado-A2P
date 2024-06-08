@@ -19,14 +19,13 @@ function ValidarPass() {
             if (!/(?=.*[A-Z])/.test(pass1)) {
                 agregarRequisito(aviso, "- Debe contener al menos una letra mayúscula.");
             } 
-            if (!/(?=.*[_.\-!$@?%#&])/.test(pass1)) {
-                agregarRequisito(aviso, "- Debe contener al menos un carácter especial: ._-!$@?%#&");
-            } 
             var secuencia = tieneSecuenciaDeNCaracteres(pass1);
             if (secuencia) {
                 mostrarAviso(aviso, "No se permiten secuencias como '" + secuencia + "'.");
-                deshabilitarBoton(boton);
             }
+            if (!/(?=.*[_.\-!$@?%#&])/.test(pass1)) {
+                agregarRequisito(aviso, "- Debe contener al menos un carácter especial: ._-!$@?%#&");
+            } 
         }
     } else {
         aviso.hidden = true;
@@ -42,7 +41,8 @@ function tieneSecuenciaDeNCaracteres(texto, N) {
 
     for (let i = 1; i < length; i++) {
         let caracterActual = texto.charCodeAt(i);
-        if (caracterActual - ultimoCaracter === 1) {
+        // Verificamos si el carácter actual es el siguiente carácter en la secuencia
+        if (caracterActual === ultimoCaracter + 1) {
             consecutivos++;
             if (consecutivos >= max) {
                 return texto.substr(i - max + 1, max);
@@ -54,12 +54,6 @@ function tieneSecuenciaDeNCaracteres(texto, N) {
     }
     return false;
 }
-
-function siguienteCaracter(c) {
-    let siguienteCharCode = c.charCodeAt(0) + 1;
-    return String.fromCharCode(siguienteCharCode);
-}
-
 
 function mostrarAviso(aviso, mensaje) {
     aviso.textContent = mensaje;

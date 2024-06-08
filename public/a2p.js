@@ -4,7 +4,6 @@ document.getElementById('registerBtn').addEventListener('click', async () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ userId: 'user123' })
     });
     const data = await response.json();
     document.getElementById('qrCode').innerHTML = `<img src="${data.qrCodeUrl}">`;

@@ -114,7 +114,7 @@ app.get('/generate-qr', (req, res) => {
       const otpauthUrl = speakeasy.otpauthURL({
         secret,
         label: email,
-        issuer: 'YourApp'
+        issuer: 'UPQROO'
       });
 
       qrcode.toDataURL(otpauthUrl, (err, data_url) => {

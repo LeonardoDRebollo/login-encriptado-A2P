@@ -67,10 +67,13 @@
   </script>
 </head>
 <body>
-  <div id="qrcode"></div>
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+  <div id="qrcode" class="qrcode"></div>
   <div class="registro-form">
-    <img src="../images/google-authenticator-logo.png" height="100px">
-    <input type="text" id="code-input" placeholder="Introduce el código de autenticación">
+    <img src="../images/google-authenticator-logo.png" height="100px" class="image-google">
+    <input class="two-factor-input" type="text" maxlength="6" id="code-input" placeholder="Introduce el código de autenticación">
     <button onclick="validateCode()">Validar</button>
   </div>
 </body>
